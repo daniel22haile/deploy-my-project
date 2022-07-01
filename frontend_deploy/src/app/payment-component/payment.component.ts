@@ -69,8 +69,8 @@ export class PaymentComponent implements OnInit {
       this.payService.makePayment(stripeToken).subscribe((data: any) => {
         console.log('data client side stripe', data);
         if (data.data === 'success') {
-          //URL - FOR SUCCESS - HERE
-          this.router.navigate(['/success']);
+          //!RL - FOR SUCCESS - HERE
+          // this.router.navigate(['/success']);
 
           this.success = true;
         } else {
@@ -87,6 +87,8 @@ export class PaymentComponent implements OnInit {
       description: "Daniel's (MSD) Final Project with Stripe payment options",
       amount: amount * 100,
     });
+
+    this.router.navigate(['/success']);
   }
 
   invokeStripe() {
