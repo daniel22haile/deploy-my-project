@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+<div class="panel-heading">
+  <div class="panel-heading"><h2 style="text-align: center">Product Details</h2></div>
+
+</div>
+
+<div class="panel-body" text-align="center">
+   <a [routerLink]="['/product-list']" class="btn btn-primary">Back</a>
+<hr>
+
+<strong>Product Name: </strong>{{productdetails.productname}} <br />
+<strong>Price: </strong> <span style="color: red">${{productdetails.price}}</span> <br />
+<strong>Quantity: </strong> <span style="color: red">{{productdetails.quantity}}</span> <br />
+<strong>Description: </strong> {{productdetails.description}}<br />
+<!-- <strong>Sub Total = ${{productdetails.price * productdetails.quantity}}</strong> -->
+
+<hr />
+<a
+class="btn btn-danger btn-block"
+[routerLink]="['add-to-cart']"
+(click)="sendToCart()"
+>Add To Cart</a>
+</div>
+</div>
+
+<!--
+  [state]="{
+  productname: productdetails.productname,
+  price : productdetails.price,
+  quantity : productdetails.quantity
+}"
+ -->

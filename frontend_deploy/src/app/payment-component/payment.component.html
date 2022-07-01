@@ -1,0 +1,241 @@
+<div class="panel panel-primary">
+  <div class="panel-heading text-center"><h2>Billing Informations</h2></div>
+
+  <div class="panel-body">
+    <form
+      [formGroup]="paymentForm"
+      (ngSubmit)="submitForm()"
+      class="form-horizontal"
+    >
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            (paymentForm.get('firstname')?.touched ||
+              paymentForm.get('firstname')?.dirty) &&
+            !paymentForm.get('firstname')?.valid
+        }"
+      >
+        <div class="col-md-12">
+          <label class="control-label" for="fullname"> Full Name</label>
+          <input
+            class="form-control"
+            type="text"
+            id="fullname"
+            placeholder="Enter Full Name"
+            formControlName="fullname"
+          />
+
+          <div
+            class="help-block"
+            *ngIf="
+              paymentForm.get('fullname')?.touched ||
+              (paymentForm.get('fullname')?.dirty &&
+                paymentForm.get('fullname')?.errors)
+            "
+          >
+            <span *ngIf="paymentForm.get('fullname')?.errors?.['required']">
+              Full Name required
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            (paymentForm.get('email')?.touched ||
+              paymentForm.get('email')?.dirty) &&
+            !paymentForm.get('email')?.valid
+        }"
+      >
+        <div class="col-md-12">
+          <label class="control-label" for="email"> Email</label>&nbsp;
+          <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+          <input
+            class="form-control"
+            type="email"
+            id="email"
+            placeholder="Enter your Email"
+            formControlName="email"
+          />
+
+          <div
+            class="help-block"
+            *ngIf="
+              paymentForm.get('email')?.touched ||
+              (paymentForm.get('email')?.dirty &&
+                paymentForm.get('email')?.errors)
+            "
+          >
+            <span *ngIf="paymentForm.get('email')?.errors?.['required']">
+              Email required
+            </span>
+            <span *ngIf="paymentForm.get('email')?.errors?.['pattern']">
+              Please enter a valid email
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------street-------------- -->
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            (paymentForm.get('street')?.touched ||
+              paymentForm.get('street')?.dirty) &&
+            !paymentForm.get('street')?.valid
+        }"
+      >
+        <div class="col-md-12">
+          <label class="control-label" for="street"> Address</label>
+          <input
+            class="form-control"
+            type="text"
+            id="street"
+            placeholder="Enter your street"
+            formControlName="street"
+          />
+          <div
+            class="help-block"
+            *ngIf="
+              paymentForm.get('street')?.touched ||
+              (paymentForm.get('street')?.dirty &&
+                paymentForm.get('street')?.errors)
+            "
+          >
+            <span *ngIf="paymentForm.get('street')?.errors?.['required']">
+              Street required
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------city-------------- -->
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            (paymentForm.get('city')?.touched ||
+              paymentForm.get('city')?.dirty) &&
+            !paymentForm.get('city')?.valid
+        }"
+      >
+        <div class="col-md-12">
+          <label class="control-label" for="city"> City</label>
+          <input
+            class="form-control"
+            type="text"
+            id="city"
+            placeholder="Enter your city"
+            formControlName="city"
+          />
+
+          <div
+            class="help-block"
+            *ngIf="
+              paymentForm.get('city')?.touched ||
+              (paymentForm.get('city')?.dirty &&
+                paymentForm.get('city')?.errors)
+            "
+          >
+            <span *ngIf="paymentForm.get('city')?.errors?.['required']">
+              City required
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------state-------------- -->
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            (paymentForm.get('state')?.touched ||
+              paymentForm.get('state')?.dirty) &&
+            !paymentForm.get('state')?.valid
+        }"
+      >
+        <div class="col-md-12">
+          <label class="control-label" for="state"> State</label>
+          <input
+            class="form-control"
+            type="text"
+            id="state"
+            placeholder="Enter your state"
+            formControlName="state"
+          />
+          <div
+            class="help-block"
+            *ngIf="
+              paymentForm.get('state')?.touched ||
+              (paymentForm.get('state')?.dirty &&
+                paymentForm.get('state')?.errors)
+            "
+          >
+            <span *ngIf="paymentForm.get('state')?.errors?.['required']">
+              State required
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- -------------Zip Code-------------- -->
+      <div
+        class="form-group"
+        [ngClass]="{
+          'has-error':
+            (paymentForm.get('zipcode')?.touched ||
+              paymentForm.get('zipcode')?.dirty) &&
+            !paymentForm.get('zipcode')?.valid
+        }"
+      >
+        <div class="col-md-12">
+          <label class="control-label" for="zip"> Zip Code</label>
+          <input
+            class="form-control"
+            type="text"
+            id="zip"
+            placeholder="Enter your zipcode"
+            formControlName="zipcode"
+          />
+
+          <div
+            class="help-block"
+            *ngIf="
+              paymentForm.get('zipcode')?.touched ||
+              (paymentForm.get('zipcode')?.dirty &&
+                paymentForm.get('zipcode')?.errors)
+            "
+          >
+            <span *ngIf="paymentForm.get('zipcode')?.errors?.['required']">
+              Zip Code required
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- payment informations -->
+
+      <!-- Submit button -->
+
+      <h2 class="col-md-12" style="text-align: center">Make Secure payment</h2>
+      <div class="col-md-12">
+        <button (click)="makePayment(calculateTotalPrice())" class="btn btn-success btn-block">
+          Pay {{ getpricedata.quantity * getpricedata.price | currency: "USD" }}
+
+        </button>
+        <div>
+          <div *ngIf="success">
+            <h1 style="color: green">Your Payment is complete successfully</h1>
+          </div>
+          <div *ngIf="failure">
+            <h1 style="color: red">Some Error is taken place inside the payment</h1>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

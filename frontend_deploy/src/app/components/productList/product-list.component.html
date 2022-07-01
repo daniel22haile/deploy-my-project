@@ -1,0 +1,32 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><h2 style="text-align: center">Product Lists</h2></div>
+  <div class="panel-body">
+ <div>
+    <a [routerLink]="['/add-products']" class="btn btn-primary">Add Product</a>
+  </div>
+
+<hr />
+  <table class="table table-striped">
+  <!-- <caption style="text-align:center; font-size:22px">Product Lists</caption> -->
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Product Name</th>
+      <th scope="col">Description</th>
+       <th scope="col">Quantity</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of products; let index=index">
+      <th scope="row">{{index + 1}}</th>
+      <td>{{product.productname}}</td>
+      <td>{{product.description}}</td>
+            <td>{{product.quantity}}</td>
+
+     | 👨‍💻<a style="color:blue" [routerLink]="['/product-detail', product._id]">Details</a>👨‍🎓 |
+    </tr>
+  </tbody>
+</table>
+  </div>
+</div>

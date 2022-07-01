@@ -1,0 +1,33 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <div class="panel-heading">
+      <h2 style="text-align: center">
+        Your Cart has - ({{ items.quantity }}) item(s)
+      </h2>
+    </div>
+  </div>
+
+  <div class="panel-body" text-align="center">
+    <a [routerLink]="['/product-list']" class="btn btn-primary"
+      >Change item?</a
+    >
+    <hr />
+    <strong>Product Name: </strong>{{ items.productname }} <br />
+    <strong>Quantity: </strong>
+    <span style="color: red">{{ items.quantity }}</span> <br />
+    <strong>Description: </strong> {{ items.description }}<br />
+
+    <h1 style="text-align: right; color: red">
+      {{ items.price | currency: "USD" }} <br />
+    </h1>
+
+    <hr />
+    <h1 style="text-align: right; color: red">
+      Sub-total : {{ items.quantity * items.price | currency: "USD" }}
+    </h1>
+
+    <hr />
+
+    <a class="btn btn-danger btn-block" [routerLink]="['/payment']">Proceed To Checkout</a>
+  </div>
+</div>
